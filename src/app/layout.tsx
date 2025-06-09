@@ -76,17 +76,20 @@ export default function RootLayout({
     },
   ];
 
+
+
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased relative h-screen`}
       >
-        <NavbarProvider/>
-        {children}
-        <div className="fixed bottom-20 left-[50%] translate-x-[-50%] translate-y-[50%] z-10 ">
-          <FloatingDock mobileClassName="translate-y-20" 
-          items={links} />
-        </div>
+            <NavbarProvider />
+            {children}
+            <div className="fixed bottom-20 left-[50%] translate-x-[-50%] translate-y-[50%] z-10 ">
+              <FloatingDock mobileClassName="translate-y-20"
+                items={links} />
+            </div>
       </body>
     </html>
   );
