@@ -12,14 +12,20 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { config } from '@/lib/config';
+import { ReactNode } from "react";
+
+interface Props {
+    children: ReactNode;
+}
 
 const queryClient = new QueryClient();
-export const RainbowKit = ({}) => {
+
+export const RainbowKit = ({children}: Props) => {
     return (
         <WagmiProvider config={config}>
             <QueryClientProvider client={queryClient}>
                 <RainbowKitProvider>
-                    {/* Your App */}
+                    {children}
                 </RainbowKitProvider>
             </QueryClientProvider>
         </WagmiProvider>

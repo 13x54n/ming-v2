@@ -10,11 +10,11 @@ import {
 
 export const config = getDefaultConfig({
     chains: [
-        mainnet,
-        polygon,
-        optimism,
-        arbitrum,
-        base,
+        // mainnet,
+        // polygon,
+        // optimism,
+        // arbitrum,
+        // base,
         sepolia, // Add any other chains you want to support
     ],
     appName: "Ming Open Web HQ",

@@ -7,6 +7,7 @@ import "./globals.css";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { IconBrandGithub, IconBrandX, IconExchange, IconHome, IconNewSection, IconTerminal2 } from "@tabler/icons-react";
 import { NavbarProvider } from "@/components/Navbar";
+import { RainbowKit } from "@/components/RainbowKitProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -76,20 +77,19 @@ export default function RootLayout({
     },
   ];
 
-
-
-
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased relative h-screen`}
       >
-            <NavbarProvider />
-            {children}
-            <div className="fixed bottom-20 left-[50%] translate-x-[-50%] translate-y-[50%] z-10 ">
-              <FloatingDock mobileClassName="translate-y-20"
-                items={links} />
-            </div>
+        <RainbowKit>
+          <NavbarProvider />
+          {children}
+          <div className="fixed bottom-20 left-[50%] translate-x-[-50%] translate-y-[50%] z-10 ">
+            <FloatingDock mobileClassName="translate-y-20"
+              items={links} />
+          </div>
+        </RainbowKit>
       </body>
     </html>
   );
