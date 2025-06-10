@@ -4,6 +4,7 @@
 import '@rainbow-me/rainbowkit/styles.css';
 import {
   RainbowKitProvider,
+  midnightTheme,
 } from '@rainbow-me/rainbowkit';
 import { WagmiProvider } from 'wagmi';
 
@@ -24,7 +25,7 @@ export const RainbowKit = ({children}: Props) => {
     return (
         <WagmiProvider config={config}>
             <QueryClientProvider client={queryClient}>
-                <RainbowKitProvider>
+                <RainbowKitProvider theme={midnightTheme()}>
                     {children}
                 </RainbowKitProvider>
             </QueryClientProvider>
