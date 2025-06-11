@@ -128,7 +128,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <a
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
+          className="relative px-4 py-2 text-sm  text-neutral-600 dark:text-neutral-300"
           key={`link-${idx}`}
           href={item.link}
         >
@@ -242,7 +242,7 @@ export const NavbarLogo = () => {
         width={30}
         height={30}
       />
-      <span className="font-medium text-black dark:text-white">Ming Open Web HQ</span>
+      <span className="font-semibold text-sm text-black dark:text-white">Ming Open Web HQ</span>
     </a>
   );
 };

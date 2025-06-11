@@ -2,72 +2,68 @@
 import {
   Navbar,
   NavBody,
-  NavItems,
+  // NavItems,
   MobileNav,
   NavbarLogo,
-  NavbarButton,
+  // NavbarButton,
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/header";
 import { useState } from "react";
-import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
+// import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 
 export function NavbarProvider() {
-  const navItems = [
-    {
-      name: "Features",
-      link: "#features",
-    },
-    {
-      name: "Pricing",
-      link: "#pricing",
-    },
-    {
-      name: "Contact",
-      link: "#contact",
-    },
-  ];
+//   const navItems = [
+//     {
+//       name: "Features",
+//       link: "#features",
+//     },
+//     {
+//       name: "Pricing",
+//       link: "#pricing",
+//     },
+//     {
+//       name: "Contact",
+//       link: "#contact",
+//     },
+//   ];
 
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const [openLoginModal, setOpenLoginModal] = useState(false)
+return (
+  <div className="relative w-full border-b border-neutral-200">
+    <Navbar>
+      {/* Desktop Navigation */}
+      <NavBody>
+        <NavbarLogo />
+        {/* <NavItems items={navItems} /> */}
+          <ConnectButton label="🦊 login" accountStatus={{
+            smallScreen: 'avatar',
+            largeScreen: 'full',
+          }} showBalance={{
+            smallScreen: false,
+            largeScreen: true,
+          }} />
+      </NavBody>
 
-  return (
-    <div className="relative w-full mt-2">
-      <Navbar>
-        {/* Desktop Navigation */}
-        <NavBody>
+      {/* Mobile Navigation */}
+      <MobileNav>
+        <MobileNavHeader>
           <NavbarLogo />
-          <NavItems items={navItems} />
-          <div className="flex items-center gap-4">
-            <ConnectButton label="Login" accountStatus={{
-              smallScreen: 'avatar',
-              largeScreen: 'full',
-            }} showBalance={{
-              smallScreen: false,
-              largeScreen: true,
-            }} />
-          </div>
-        </NavBody>
-
-        {/* Mobile Navigation */}
-        <MobileNav>
-          <MobileNavHeader>
-            <NavbarLogo />
-            <MobileNavToggle
-              isOpen={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            />
-          </MobileNavHeader>
-
-          <MobileNavMenu
+          <MobileNavToggle
             isOpen={isMobileMenuOpen}
-            onClose={() => setIsMobileMenuOpen(false)}
-          >
-            {navItems.map((item, idx) => (
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          />
+        </MobileNavHeader>
+
+        <MobileNavMenu
+          isOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
+        >
+          {/* {navItems.map((item, idx) => (
               <a
                 key={`mobile-link-${idx}`}
                 href={item.link}
@@ -76,21 +72,21 @@ export function NavbarProvider() {
               >
                 <span className="block">{item.name}</span>
               </a>
-            ))}
-            <div className="flex w-full flex-col gap-4">
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Book a call
-              </NavbarButton>
-            </div>
-          </MobileNavMenu>
-        </MobileNav>
-      </Navbar>
+            ))} */}
+          <div className="flex w-full flex-col gap-4">
+            <ConnectButton label="🦊 login" accountStatus={{
+              smallScreen: 'avatar',
+              largeScreen: 'full',
+            }} showBalance={{
+              smallScreen: false,
+              largeScreen: true,
+            }} />
+          </div>
+        </MobileNavMenu>
+      </MobileNav>
+    </Navbar>
 
-      {/* Navbar */}
-    </div>
-  );
+    {/* Navbar */}
+  </div>
+);
 }
