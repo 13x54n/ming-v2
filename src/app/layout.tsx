@@ -3,11 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 // import Menu from "@/components/menu";
 
-// Floating Dock imports
-import { FloatingDock } from "@/components/ui/floating-dock";
-import { IconBrandGithub, IconBrandX, IconExchange, IconHome, IconNewSection, IconTerminal2 } from "@tabler/icons-react";
-import { NavbarProvider } from "@/components/Navbar";
 import { RainbowKit } from "@/components/RainbowKitProvider";
+import { NavbarProvider } from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,52 +27,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   // Floating Dock links
-  const links = [
-    {
-      title: "Home",
-      icon: (
-        <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-    },
-
-    {
-      title: "Products",
-      icon: (
-        <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-    },
-    {
-      title: "Components",
-      icon: (
-        <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-    },
-    {
-      title: "Changelog",
-      icon: (
-        <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-    },
-
-    {
-      title: "Twitter",
-      icon: (
-        <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-    },
-    {
-      title: "GitHub",
-      icon: (
-        <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-    },
-  ];
 
   return (
     <html lang="en">
@@ -86,8 +37,6 @@ export default function RootLayout({
           <NavbarProvider />
           {children}
           <div className="fixed bottom-20 left-[50%] translate-x-[-50%] translate-y-[50%] z-10 ">
-            <FloatingDock mobileClassName="translate-y-20"
-              items={links} />
           </div>
         </RainbowKit>
       </body>
