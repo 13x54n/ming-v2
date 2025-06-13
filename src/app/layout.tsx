@@ -25,8 +25,6 @@ export default function RootLayout({
         <RainbowKit>
           <NavbarProvider />
           {children}
-          <div className="fixed bottom-20 left-[50%] translate-x-[-50%] translate-y-[50%] z-10 ">
-          </div>
         </RainbowKit>
       </body>
     </html>

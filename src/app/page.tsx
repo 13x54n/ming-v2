@@ -18,22 +18,22 @@ export default function page() {
     {
       title: "Ming | Starknet Grant Recipient - dApp Deployment",
       description:
-        "Capture stunning photos effortlessly using our advanced AI technology.",
+        "Deploy your dApp in seconds on Peers Local PC as a containerized application.",
       skeleton: <SkeletonTwo />,
       className: "border-b col-span-1 lg:col-span-2 dark:border-neutral-800",
     },
     {
       title: "Rose - NFT ready Cloud Storage",
       description:
-        "Whether its you or Tyler Durden, you can get to know about our product on YouTube",
+        "Smart storage solution built on top of IPFS & Filecoin, benchmarking deduplication process, and optionally enabling proof of ownership using ERC721. BUIDL for humans.",
       skeleton: <SkeletonThree />,
       className:
         "col-span-1 lg:col-span-3 lg:border-r  dark:border-neutral-800",
     },
     {
-      title: "Deploy in seconds",
+      title: "Upcoming Project - Smart Crypto Trader BOT",
       description:
-        "With our blazing fast, state of the art, cutting edge, we are so back cloud servies (read AWS) - you can deploy your model in seconds.",
+        "A smart crypto trader bot that uses AI to analyze market trends from X and make trades on your behalf. The aim is to be capable of support various trading strategies.",
       skeleton: <SkeletonFour />,
       className: "col-span-1 lg:col-span-3 border-b lg:border-none",
     },
@@ -123,27 +123,51 @@ export const SkeletonOne = () => {
 
 export const SkeletonThree = () => {
   return (
-    <div>ske three</div>
+    <div className="h-30 md:h-30  flex3flex-col items-start relative bg-transparent dark:bg-transparent">
+      <p className="text-sm ">
+        Rose is a NFT ready cloud storage, you can store your files and mint them as NFT on blockchain.
+      </p>
+      <div className="relative flex items-center py-2 gap-1">
+        <IconLink className="text-sm text-neutral-500 dark:text-neutral-300" width={16} height={16} />
+        <Link
+          href="https://github.com/MingInc"
+          target="_blank"
+          aria-label="Rose - NFT ready Cloud Storage"
+          className="text-sm text-neutral-500 dark:text-neutral-300 font-normal underline"
+        >
+          GitHub Link</Link>
+      </div>
+    </div>
   );
 };
 
 export const SkeletonTwo = () => {
 
   return (
-    <div className="relative flex flex-col items-start p-8 gap-10 h-full overflow-hidden">
-      {/* TODO */}
-
-
-      <div className="absolute left-0 z-[100] inset-y-0 w-20 bg-gradient-to-r from-white dark:from-black to-transparent  h-full pointer-events-none" />
-      <div className="absolute right-0 z-[100] inset-y-0 w-20 bg-gradient-to-l from-white dark:from-black  to-transparent h-full pointer-events-none" />
+    <div className="h-30 md:h-30  flex flex-col items-start relative bg-transparent dark:bg-transparent">
+      <p className="text-sm ">
+        Ming is a Starknet Grant Recipient, we are building tools to help you deploy your dApp in seconds.
+      </p>
+      <div className="relative flex items-center py-2 gap-1">
+        <IconLink className="text-sm text-neutral-500 dark:text-neutral-300" width={16} height={16} />
+        <Link
+          href="https://github.com/MingInc"
+          target="_blank"
+          aria-label="Ming | Starknet Grant Recipient - dApp Deployment"
+          className="text-sm text-neutral-500 dark:text-neutral-300 font-normal underline"
+        >
+          GitHub Link</Link>
+      </div>
     </div>
   );
 };
 
 export const SkeletonFour = () => {
   return (
-    <div className="h-60 md:h-60  flex flex-col items-center relative bg-transparent dark:bg-transparent mt-10">
-      foiur
+    <div className="h-30 md:h-30  flex flex-col items-start relative bg-transparent dark:bg-transparent">
+      <p className="text-sm ">
+        Coming Soon...
+      </p>
     </div>
   );
 };
