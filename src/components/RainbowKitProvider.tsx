@@ -25,9 +25,8 @@ const queryClient = new QueryClient();
 const Disclaimer: DisclaimerComponent = ({ Text, Link }) => (
   <Text>
     By connecting your wallet, you agree to the{' '}
-    <Link href="https://termsofservice.xyz">Terms of Service</Link> and
-    acknowledge you have read and understand the protocol{' '}
-    <Link href="https://disclaimer.xyz">Disclaimer</Link>
+    <Link href="/terms-and-conditions">Terms of Service</Link> and
+    acknowledge you have read and understand the protocol.
   </Text>
 );
 
@@ -35,7 +34,7 @@ export const RainbowKit = ({ children }: Props) => {
     return (
         <WagmiProvider config={config}>
             <QueryClientProvider client={queryClient}>
-                <RainbowKitProvider modalSize="compact" theme={lightTheme({
+                <RainbowKitProvider modalSize="wide" theme={lightTheme({
                     accentColor: '#000000',
                     accentColorForeground: 'white',
                     borderRadius: 'medium',
