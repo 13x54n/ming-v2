@@ -33,7 +33,7 @@ export default function Page(): React.ReactElement {
   ]
 
   return (
-    <div className="relative z-20 py-10 max-w-7xl mx-auto px-8">
+    <div className="relative z-20 max-w-8xl md:max-w-7xl mx-auto ">
       <h4 className="text-3xl lg:text-5xl text-center font-medium tracking-tight text-black dark:text-white mt-4">
         Building tools for Web3.
       </h4>
