@@ -2,6 +2,7 @@
 import type { ReactElement } from "react"
 import { cn } from "@/lib/utils"
 import { FollowerPointerCard } from "../ui/following-pointer"
+import Image from "next/image"
 
 interface FeatureCardProps {
   title: string
@@ -16,7 +17,7 @@ const TitleComponent = ({
   title: string;
 }) => (
   <div className="flex items-center space-x-2">
-    <img
+    <Image
       src="https://avatars.githubusercontent.com/u/179059125?s=48&v=4"
       height="20"
       width="20"

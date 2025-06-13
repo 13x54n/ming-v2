@@ -1,5 +1,4 @@
-// Core component that receives mouse positions and renders pointer and content
-
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 
 import { motion, AnimatePresence, useMotionValue } from "motion/react";
