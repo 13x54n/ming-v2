@@ -1,30 +1,31 @@
 "use client"
 
-import { FeatureCard } from "@/components/FeatureCard"
-import { SkeletonOne, SkeletonTwo, SkeletonThree, SkeletonFour } from "@/components/Skeletons"
+import { FeatureCard } from "@/components/page/FeatureCard"
+import { SkeletonOne, SkeletonTwo, SkeletonThree, SkeletonFour } from "@/components/page/Skeletons"
+import { PointerHighlight } from "@/components/ui/pointer-highlight";
 
 export default function Page(): React.ReactElement {
   const features = [
     {
-      title: "Sunya - Smart Contract Vulnerability Detection",
+      title: "🐛 Sunya - Smart Contract Vulnerability Detection",
       description: "Scan your smart contracts every commit. Works with EVM + Starknet.",
       skeleton: <SkeletonOne />,
       className: "col-span-1 lg:col-span-4 border-b lg:border-r dark:border-neutral-800",
     },
     {
-      title: "Ming | Starknet Grant Recipient - dApp Deployment",
+      title: "☁️ Ming | Starknet Grant Recipient - dApp Deployment",
       description: "Deploy your dApp in seconds locally in a container.",
       skeleton: <SkeletonTwo />,
       className: "border-b col-span-1 lg:col-span-2 dark:border-neutral-800",
     },
     {
-      title: "Rose - NFT ready Cloud Storage",
+      title: "🗂️ Rose - NFT ready Cloud Storage",
       description: "Store files, mint NFTs. Built on IPFS + Filecoin with deduplication & ERC721.",
       skeleton: <SkeletonThree />,
       className: "col-span-1 lg:col-span-3 lg:border-r dark:border-neutral-800",
     },
     {
-      title: "Upcoming Project - Smart Crypto Trader BOT",
+      title: "🦄 Upcoming Project - Smart Crypto Trader BOT",
       description: "AI-powered trading bot that learns market patterns from X and trades on your behalf.",
       skeleton: <SkeletonFour />,
       className: "col-span-1 lg:col-span-3 border-b lg:border-none",
@@ -33,16 +34,23 @@ export default function Page(): React.ReactElement {
 
   return (
     <div className="relative z-20 py-10 max-w-7xl mx-auto px-8">
-      <h4 className="text-3xl lg:text-5xl text-center font-medium tracking-tight text-black dark:text-white">
+      <h4 className="text-3xl lg:text-5xl text-center font-medium tracking-tight text-black dark:text-white mt-4">
         Building tools for Web3.
       </h4>
-      <p className="text-sm lg:text-base max-w-2xl mx-auto text-neutral-500 dark:text-neutral-300 text-center my-4">
-        From contract scanners to dApp deployment, NFT cloud storage to AI trader bots — we’re building what Web3 needs.
-      </p>
+      <div className="text-sm lg:text-base max-w-2xl mx-auto text-neutral-500 dark:text-neutral-300 text-center my-4">
+        From contract scanners to dApp deployment, NFT cloud storage to AI trader bots — <PointerHighlight
+          rectangleClassName="bg-green-200 dark:bg-green-700 border-green-300 dark:border-green-600 leading-loose"
+          pointerClassName="text-green-500 h-3 w-3"
+          containerClassName="inline-block mr-1"
+        >
+          <span className="relative z-10">we’re building what Web3 needs.</span>
+        </PointerHighlight>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800">
-        {features.map((feature, i) => (
+        {features.map((feature, i) => (<>
           <FeatureCard key={i} {...feature} />
+        </>
         ))}
       </div>
     </div>
