@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { RainbowKit } from "@/components/RainbowKitProvider";
 import { NavbarProvider } from "@/components/Navbar";
+import { WalletProvider } from "@/context/WalletContext";
 
 export const metadata: Metadata = {
   title: "Ming Open Web HQ",
@@ -15,16 +16,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Floating Dock links
-
   return (
     <html lang="en">
       <body
         className={`antialiased relative h-screen`}
       >
         <RainbowKit>
-          <NavbarProvider />
-          {children}
+          <WalletProvider>
+            <NavbarProvider />
+            {children}
+          </WalletProvider>
         </RainbowKit>
       </body>
     </html>
