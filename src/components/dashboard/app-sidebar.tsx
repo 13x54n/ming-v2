@@ -1,7 +1,5 @@
 import * as React from "react"
 
-import { SearchForm } from "@/components/dashboard/search-form"
-import { VersionSwitcher } from "@/components/dashboard/version-switcher"
 import {
   Sidebar,
   SidebarContent,
@@ -14,6 +12,8 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar"
+import Image from "next/image"
+import { Separator } from "../ui/separator"
 
 // This is sample data.
 const data = {
@@ -150,13 +150,17 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
-      <SidebarHeader>
-        <VersionSwitcher
-          versions={data.versions}
-          defaultVersion={data.versions[0]}
+      <SidebarHeader className="flex flex-row justify-center py-4 items-center ">
+        <Image
+          src="https://avatars.githubusercontent.com/u/179059125?s=48&v=4"
+          alt="Ming Open Web HQ Logo"
+          width={30}
+          height={30}
+          className="rounded-sm"
         />
-        <SearchForm />
+        <h1 className="text-sm font-bold">Ming Open Web HQ</h1>
       </SidebarHeader>
+      <Separator />
       <SidebarContent>
         {/* We create a SidebarGroup for each parent. */}
         {data.navMain.map((item) => (

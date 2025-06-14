@@ -3,7 +3,6 @@ import "./globals.css";
 // import Menu from "@/components/menu";
 
 import { RainbowKit } from "@/components/RainbowKitProvider";
-import { NavbarProvider } from "@/components/Navbar";
 import { WalletProvider } from "@/context/WalletContext";
 
 export const metadata: Metadata = {
@@ -23,7 +22,6 @@ export default function RootLayout({
       >
         <RainbowKit>
           <WalletProvider>
-            <NavbarProvider />
             {children}
           </WalletProvider>
         </RainbowKit>

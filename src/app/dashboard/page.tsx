@@ -16,6 +16,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 import ProtectedRoute from "@/components/auth/ProtectedRoute"
+import { ConnectButton } from "@rainbow-me/rainbowkit"
 
 export default function Page() {
   return (
@@ -29,16 +30,27 @@ export default function Page() {
               orientation="vertical"
               className="mr-2 data-[orientation=vertical]:h-4"
             />
-            <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">
-                    Building Your Application
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator className="hidden md:block" />
+            <Breadcrumb className="flex-1">
+              <BreadcrumbList className="w-full flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <BreadcrumbItem className="hidden md:block">
+                    <BreadcrumbLink href="#">
+                      Building Your Application
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator className="hidden md:block" />
+                  <BreadcrumbItem>
+                    <BreadcrumbPage>Data Fetching</BreadcrumbPage>
+                  </BreadcrumbItem>
+                </div>
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Data Fetching</BreadcrumbPage>
+                  <ConnectButton label="🦊 login" accountStatus={{
+                    smallScreen: 'avatar',
+                    largeScreen: 'full',
+                  }} showBalance={{
+                    smallScreen: false,
+                    largeScreen: false,
+                  }} />
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
