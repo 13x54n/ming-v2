@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { cookies } from "next/headers"
 // import Menu from "@/components/menu";
 
 import { RainbowKit } from "@/components/RainbowKitProvider";
-import { NavbarProvider } from "@/components/Navbar";
+import { WalletProvider } from "@/context/WalletContext";
 
 export const metadata: Metadata = {
   title: "Ming Open Web HQ",
@@ -15,16 +16,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Floating Dock links
 
+  const cookieStore = await cookies()
+  const defaultOpen = cookieStore.get("sidebar:state")?.value === "true"
   return (
     <html lang="en">
       <body
         className={`antialiased relative h-screen`}
       >
         <RainbowKit>
-          <NavbarProvider />
-          {children}
+          <WalletProvider>
+            {children}
+          </WalletProvider>
         </RainbowKit>
       </body>
     </html>

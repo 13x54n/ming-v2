@@ -34,7 +34,7 @@ export function NavbarProvider() {
 const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 return (
-  <div className="relative w-full border-b border-neutral-200">
+  <div className="border-b border-neutral-200">
     <Navbar>
       {/* Desktop Navigation */}
       <NavBody>
