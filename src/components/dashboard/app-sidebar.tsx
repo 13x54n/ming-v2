@@ -1,4 +1,5 @@
-import * as React from "react"
+import type * as React from "react"
+import { Code, Rocket, Settings, Search, Shield, Globe, Coins, Users, Key, Bell, FileText } from "lucide-react"
 
 import {
   Sidebar,
@@ -17,130 +18,66 @@ import { Separator } from "../ui/separator"
 
 // This is sample data.
 const data = {
-  versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
   navMain: [
     {
-      title: "Getting Started",
+      title: "Code",
       url: "#",
+      icon: Code,
       items: [
         {
-          title: "Installation",
+          title: "Code Inspector",
           url: "#",
-        },
-        {
-          title: "Project Structure",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Building Your Application",
-      url: "#",
-      items: [
-        {
-          title: "Routing",
-          url: "#",
-        },
-        {
-          title: "Data Fetching",
-          url: "#",
+          icon: Search,
           isActive: true,
         },
         {
-          title: "Rendering",
+          title: "Audit",
           url: "#",
-        },
-        {
-          title: "Caching",
-          url: "#",
-        },
-        {
-          title: "Styling",
-          url: "#",
-        },
-        {
-          title: "Optimizing",
-          url: "#",
-        },
-        {
-          title: "Configuring",
-          url: "#",
-        },
-        {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
-          url: "#",
+          icon: Shield,
         },
       ],
     },
     {
-      title: "API Reference",
+      title: "Deploy",
       url: "#",
+      icon: Rocket,
       items: [
         {
-          title: "Components",
+          title: "Deploy dApp",
           url: "#",
+          icon: Globe,
         },
         {
-          title: "File Conventions",
+          title: "Deploy Tokens",
           url: "#",
-        },
-        {
-          title: "Functions",
-          url: "#",
-        },
-        {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
-        {
-          title: "Edge Runtime",
-          url: "#",
+          icon: Coins,
         },
       ],
     },
     {
-      title: "Architecture",
+      title: "Settings",
       url: "#",
+      icon: Settings,
       items: [
         {
-          title: "Accessibility",
+          title: "User Management",
           url: "#",
+          icon: Users,
         },
         {
-          title: "Fast Refresh",
+          title: "API Keys",
           url: "#",
+          icon: Key,
         },
         {
-          title: "Next.js Compiler",
+          title: "Notifications",
           url: "#",
+          icon: Bell,
         },
         {
-          title: "Supported Browsers",
+          title: "Logs",
           url: "#",
-        },
-        {
-          title: "Turbopack",
-          url: "#",
+          icon: FileText,
         },
       ],
     },
@@ -165,21 +102,29 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {/* We create a SidebarGroup for each parent. */}
         {data.navMain.map((item) => (
           <SidebarGroup key={item.title}>
-            <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
+            <SidebarGroupLabel className="flex items-center gap-2">
+              <item.icon className="h-4 w-4" />
+              {item.title}
+            </SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
-                {item.items.map((item) => (
-                  <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild isActive={item.isActive}>
-                      <a href={item.url}>{item.title}</a>
+                {item.items.map((subItem) => (
+                  <SidebarMenuItem key={subItem.title}>
+                    <SidebarMenuButton asChild isActive={subItem.isActive}>
+                      <a href={subItem.url} className="flex items-center gap-2">
+                        <subItem.icon className="h-4 w-4" />
+                        <span>{subItem.title}</span>
+                      </a>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
               </SidebarMenu>
             </SidebarGroupContent>
+            <Separator className="mt-2"/>
           </SidebarGroup>
         ))}
       </SidebarContent>
+
       <SidebarRail />
     </Sidebar>
   )
