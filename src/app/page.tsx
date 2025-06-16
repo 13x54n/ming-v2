@@ -7,6 +7,7 @@ import { useWalletDispatch } from "@/context/WalletContext"
 import { SkeletonOne, SkeletonTwo, SkeletonThree, SkeletonFour } from "@/components/page/Skeletons"
 import { FeatureCard } from "@/components/page/FeatureCard"
 import { PointerHighlight } from "@/components/ui/pointer-highlight"
+import { NavbarProvider } from "@/components/Navbar"
 
 export default function Page(): React.ReactElement {
   const dispatch = useWalletDispatch()
@@ -59,6 +60,8 @@ export default function Page(): React.ReactElement {
 
   return (
     <div className="relative z-20 max-w-8xl md:max-w-7xl mx-auto">
+      <NavbarProvider />
+
       <h4 className="text-3xl lg:text-5xl text-center font-medium tracking-tight text-black dark:text-white mt-4">
         Building tools for Web3.
       </h4>
@@ -74,13 +77,12 @@ export default function Page(): React.ReactElement {
         </PointerHighlight>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-6 mt-8 xl:border rounded-md dark:border-neutral-800">
+      <div className="grid grid-cols-1 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800">
         {features.map((feature, i) => (
-          <React.Fragment key={i}>
-            <FeatureCard {...feature} />
-          </React.Fragment>
+          <FeatureCard key={i} {...feature} />
+
         ))}
       </div>
-    </div>
+    </div >
   )
 }
