@@ -1,27 +1,23 @@
 "use client"
 
-import * as React from "react"
+import type * as React from "react"
 import {
-  BookOpen,
   Bot,
-  Frame,
-  Map,
-  PieChart,
+  Building2,
+  Code,
+  CreditCard,
+  Database,
+  MaximizeIcon as Limit,
+  Settings,
   Settings2,
-  SquareTerminal,
+  TrendingUp,
+  Users,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
 // import { NavUser } from "@/components/nav-user"
 import { TeamSwitcher } from "@/components/team-switcher"
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarRail,
-} from "@/components/ui/sidebar"
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/components/ui/sidebar"
 
 // This is sample data.
 const data = {
@@ -34,68 +30,30 @@ const data = {
     {
       name: "Ming Open Web HQs",
       plan: "Free",
+      icon: Building2,
     },
   ],
   navMain: [
     {
-      title: "Playground",
-      url: "#",
-      icon: SquareTerminal,
-      isActive: true,
-      items: [
-        {
-          title: "History",
-          url: "#",
-        },
-        {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
-          url: "#",
-        },
-      ],
-    },
-    {
       title: "Models",
       url: "#",
       icon: Bot,
+      isActive: true,
       items: [
         {
-          title: "Genesis",
+          title: "Code Inspector",
           url: "#",
+          icon: Code,
         },
         {
-          title: "Explorer",
+          title: "IPFS Storage",
           url: "#",
+          icon: Database,
         },
         {
-          title: "Quantum",
+          title: "DeFi Bot",
           url: "#",
-        },
-      ],
-    },
-    {
-      title: "Documentation",
-      url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
+          icon: TrendingUp,
         },
       ],
     },
@@ -107,37 +65,24 @@ const data = {
         {
           title: "General",
           url: "#",
+          icon: Settings,
         },
         {
           title: "Team",
           url: "#",
+          icon: Users,
         },
         {
           title: "Billing",
           url: "#",
+          icon: CreditCard,
         },
         {
           title: "Limits",
           url: "#",
+          icon: Limit,
         },
       ],
-    },
-  ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
     },
   ],
 }
@@ -150,11 +95,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
       </SidebarContent>
-      <SidebarFooter>
-        {/* <NavUser user={data.user} /> */}
-      </SidebarFooter>
+      <SidebarFooter>{/* <NavUser user={data.user} /> */}</SidebarFooter>
       <SidebarRail />
     </Sidebar>
   )

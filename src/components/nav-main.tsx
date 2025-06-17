@@ -1,15 +1,11 @@
 "use client"
 
 import { ChevronRight, type LucideIcon } from "lucide-react"
+import { usePageContext } from "@/context/DashboardSidebarContext"
 
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import {
   SidebarGroup,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -17,6 +13,16 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
+
+const pageMapping = {
+  "Code Inspector": "code-inspector",
+  "IPFS Storage": "ipfs-storage",
+  "DeFi Bot": "defi-bot",
+  General: "general",
+  Team: "team",
+  Billing: "billing",
+  Limits: "limits",
+} as const
 
 export function NavMain({
   items,
@@ -29,20 +35,24 @@ export function NavMain({
     items?: {
       title: string
       url: string
+      icon?: LucideIcon
     }[]
   }[]
 }) {
+  const { currentPage, setCurrentPage } = usePageContext()
+
+  const handlePageChange = (pageTitle: string) => {
+    const pageKey = pageMapping[pageTitle as keyof typeof pageMapping]
+    if (pageKey) {
+      setCurrentPage(pageKey)
+    }
+  }
+
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Platform</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
-          <Collapsible
-            key={item.title}
-            asChild
-            defaultOpen={item.isActive}
-            className="group/collapsible"
-          >
+          <Collapsible key={item.title} asChild defaultOpen={item.isActive} className="group/collapsible">
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton tooltip={item.title}>
@@ -55,10 +65,12 @@ export function NavMain({
                 <SidebarMenuSub>
                   {item.items?.map((subItem) => (
                     <SidebarMenuSubItem key={subItem.title}>
-                      <SidebarMenuSubButton asChild>
-                        <a href={subItem.url}>
-                          <span>{subItem.title}</span>
-                        </a>
+                      <SidebarMenuSubButton
+                        onClick={() => handlePageChange(subItem.title)}
+                        isActive={currentPage === pageMapping[subItem.title as keyof typeof pageMapping]}
+                      >
+                        {subItem.icon && <subItem.icon />}
+                        <span>{subItem.title}</span>
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
                   ))}
